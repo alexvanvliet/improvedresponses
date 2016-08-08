@@ -1,6 +1,18 @@
 {
     "name": "alexvanvliet/improvedresponses",
     "description": "Add methods to responses on laravel",
+    "keywords": [
+        "framework",
+        "laravel",
+        "responses",
+        "methods"
+    ],
+    "autoload": {
+        "psr-4": {
+            "AlexvanVliet\\ImprovedResponses\\": "src"
+        }
+    },
+    "license": "MIT",
     "type": "library",
     "authors": [
         {

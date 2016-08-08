@@ -1,0 +1,13 @@
+{
+    "name": "alexvanvliet/improvedresponses",
+    "description": "Add methods to responses on laravel",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Alex van Vliet",
+            "email": "contact@alexvanvliet.be"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

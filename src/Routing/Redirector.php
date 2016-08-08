@@ -8,12 +8,21 @@ use Illuminate\Routing\Redirector as BaseRedirector;
 class Redirector extends BaseRedirector
 {
     /**
+     * List of the method bindings.
+     *
      * @var array
      */
     protected $bindings = [];
 
-    public function bind($name, callable $function){
-        $this->bindings[$name] = $function;
+    /**
+     * Add a method binding.
+     *
+     * @param          $name
+     * @param callable $function
+     */
+    public function bind ($name, callable $function)
+    {
+        $this->bindings[ $name ] = $function;
     }
 
     /**

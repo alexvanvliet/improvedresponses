@@ -25,6 +25,18 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register ()
     {
+        $this->registerRedirector();
+
+        $this->registerViewFactory();
+
+        $this->registerResponseFactory();
+    }
+
+    /**
+     * Register the new redirector.
+     */
+    private function registerRedirector ()
+    {
         $this->app[ 'redirect' ] = $this->app->share(function ($app)
         {
             $redirector = new Redirector($app[ 'url' ]);
@@ -36,7 +48,13 @@ class ServiceProvider extends BaseServiceProvider
 
             return $redirector;
         });
+    }
 
+    /**
+     * Register the new view factory.
+     */
+    private function registerViewFactory ()
+    {
         $this->app->singleton('view', function ($app)
         {
             // Next we need to grab the engine resolver instance that will be used by the
@@ -57,7 +75,13 @@ class ServiceProvider extends BaseServiceProvider
 
             return $env;
         });
+    }
 
+    /**
+     * Register the new response factory.
+     */
+    private function registerResponseFactory ()
+    {
         $this->app->singleton('Illuminate\Contracts\Routing\ResponseFactory', function ($app)
         {
             return new ResponseFactory($app[ 'Illuminate\Contracts\View\Factory' ], $app[ 'redirect' ]);
